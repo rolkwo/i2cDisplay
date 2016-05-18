@@ -19,6 +19,7 @@ public:
 
 	void write(const char* str);
 	void gotoPos(uint8_t line, uint8_t col);
+	void setBacklight(bool state);
 
 private:
 	void initLcd();
@@ -31,10 +32,12 @@ private:
 	void sendHalfword(uint8_t half, bool rs = false);
 
 	I2C_TypeDef* _i2c;
+	bool _backlight;
 
 	static const uint8_t RS;
 	static const uint8_t RW;
 	static const uint8_t E;
+	static const uint8_t BACK_LIGHT;
 	static const uint8_t DATA_OFFSET;
 
 };
